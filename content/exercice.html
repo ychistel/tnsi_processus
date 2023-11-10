@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Exercices &#8212; NSI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/script.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/exercice';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="TP : Processus et système d’exploitation linux" href="tp_os_processus.html" />
+    <link rel="prev" title="Les processus" href="processus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">NSI</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activite.html">Qu’est-ce qu’un processus ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processus.html">Les processus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp_os_processus.html">TP : Processus et système d’exploitation linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="os_processus.html">Systèmes d’exploitation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/exercice.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="exercices">
+<h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="exercice-1">
+<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On définit les temps suivants :</p>
+<ul class="simple">
+<li><p>Le temps de <em>latence</em> est le délai entre la création d’un processus et le début de son exécution.</p></li>
+<li><p>le temps <em>CPU</em> est le temps total durant lequel le processeur exécute le processus.</p></li>
+<li><p>le temps <em>réel écoulé</em> est le délai entre la création d’un processus et sa terminaison.</p></li>
+</ul>
+<p class="rubrique rubric">A. Ordonnancement FIFO</p>
+<p>L’ordonnancement FIFO est non <strong>préemptif</strong>. Cela implique qu’un processus élu s’exécute jusqu’à la fin. Les autres processus sont à l’état <strong>prêt</strong>. Les processus sont élus dans l’ordre de leur arrivée. Un processus est caractérisé par sa date de création <span class="math notranslate nohighlight">\(t_{0}\)</span> et sa durée <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>Soient les processus <strong>PA</strong>, <strong>PB</strong> et <strong>PC</strong> de dates de création respectives 0, 4 et 6 et de durée respectives 6, 12 et 6.</p>
+<ol class="arabic simple">
+<li><p>Déterminer pour chacun des temps <span class="math notranslate nohighlight">\(t\)</span> de 0 à 24 le processus actif. Il est possible de présenter le résultat sous forme de chronogramme.</p></li>
+<li><ol class="loweralpha simple">
+<li><p>Quel est le temps de latence de chacun des processus ?</p></li>
+<li><p>Quel est le temps CPU de chacun des processus ?</p></li>
+<li><p>Quel est le temps réel écoulé pour chacun des processus ?</p></li>
+</ol>
+</li>
+</ol>
+<p class="rubric">B. Ordonnancement préemptif</p>
+<p>On suppose maintenant un ordonnancement préemptif. La durée <em>q</em> du quantum est fixée à 2 unités de temps. Parmi l’ensemble des processus prêts, le système choisit celui qui n’a pas été exécuté depuis le plus longtemps.</p>
+<p>On reprend les processus <strong>PA</strong>, <strong>PB</strong> et <strong>PC</strong> de la partie précédente.</p>
+<ol class="arabic simple">
+<li><p>Déterminer pour chacun des temps <span class="math notranslate nohighlight">\(t\)</span> de 0 à 24 le processus actif. Il est possible de présenter le résultat
+sous forme de chronogramme.</p></li>
+<li><ol class="loweralpha simple">
+<li><p>Quel est le temps de latence de chacun des processus ?</p></li>
+<li><p>Quel est le temps CPU de chacun des processus ?</p></li>
+<li><p>Quel est le temps réel écoulé pour chacun des processus ?</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="exercice-2">
+<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Un programme Python nommé <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code> qui est exécuté sur la machine est associé à 2 processus:</p>
+<ul class="simple">
+<li><p>Un processus pour le programme python <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code>;</p></li>
+<li><p>Un processus pour l’interpréteur (console) python qui exécute le programme.</p></li>
+</ul>
+<p>En Python, le module <code class="docutils literal notranslate"><span class="pre">os</span></code> dispose de fonctions qui permettent d’obtenir des informations système.</p>
+<ul class="simple">
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">getpid()</span></code> renvoie le PID du programme Python exécuté;</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">getppid()</span></code> renvoie le PPID du processus parent;</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">kill(pid,0)</span></code> arrête le processus dont le PID est <code class="docutils literal notranslate"><span class="pre">pid</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour disposer des fonctions ci-dessus du module <code class="docutils literal notranslate"><span class="pre">os</span></code>, il est nécessaire des les importer dans le programme Python avec la commande:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getpid</span><span class="p">,</span> <span class="n">getppid</span><span class="p">,</span><span class="n">kill</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic">
+<li><p>Quel est le lien entre les 2 processus créés lors de l’exécution d’un programme Python?</p></li>
+<li><p>Créer avec l’application <strong>thonny</strong> un fichier <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> et importer les 3 fonctions du module <code class="docutils literal notranslate"><span class="pre">os</span></code> ci-dessus.</p></li>
+<li><p>Compléter votre programme avec les 2 instructions suivantes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_pid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;je suis&quot;</span><span class="p">,</span><span class="n">mon_pid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Exécuter ce programme et vérifier le PID dans le gestionnaire des tâches.</p>
+</li>
+<li><p>Compléter le programme précédent pour afficher le PID du processus parent. On utilisera la variable <code class="docutils literal notranslate"><span class="pre">parent_pid</span></code> pour stocker le PPID et on modifiera le message de l’affichage en « mon parent est ».</p></li>
+<li><p>On peut exécuter notre programme Python <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> en utilisant une ligne de commande saisie dans la fenêtre de commande.</p>
+<ol class="loweralpha simple">
+<li><p>Vérifier que le fichier <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> est associé au programme <strong>python</strong> (idle) et non thonny.</p></li>
+<li><p>Exécuter la commande <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> dans la fenêtre de commande et vérifier que le code s’exécute bien.</p></li>
+<li><p>La commande <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> lance 2 processus associés au programme et à l’interpréteur. Quel est le processus parent de ces 2 processus ? Quel est son PPID ?</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Indication</p>
+<p>L’exécution du programme <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> est très rapide. Pour se donner le temps de voir et noter les PID des processus, il est conseillé de mettre une pause avec la commande Python <code class="docutils literal notranslate"><span class="pre">sleep(10)</span></code> du module <code class="docutils literal notranslate"><span class="pre">time</span></code>.</p>
+</div>
+</li>
+<li><p>Un programme peut être lancé plusieurs fois. Pour cela, on sépare les noms des programmes par le symbole <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. La commande à saisir pour lancer 2 fois notre programme est donc <code class="docutils literal notranslate"><span class="pre">pid.py</span> <span class="pre">&amp;</span> <span class="pre">pid.py</span></code>.</p>
+<ol class="loweralpha simple">
+<li><p>Ajouter à la fin du code du programme <code class="docutils literal notranslate"><span class="pre">pid.py</span></code> une instruction d’affichage « fin de processus ».</p></li>
+<li><p>Saisir dans la fenêtre de commande une instruction pour exécuter 2 fois le programme <code class="docutils literal notranslate"><span class="pre">pid.py</span></code>.</p></li>
+</ol>
+</li>
+<li><p>Un processus peut être arrêté alors qu’il est en cours d’exécution. La commande <code class="docutils literal notranslate"><span class="pre">kill(pid,0)</span></code> met fin au processus dont on passe le PID en paramètre.</p>
+<ol class="loweralpha simple">
+<li><p>Ajouter un arrêt du processus dont le PID est stocké dans la variable <code class="docutils literal notranslate"><span class="pre">mon_pid</span></code>.</p></li>
+<li><p>Ajouter un arrêt du processus dont le PID est stocké dans la variable <code class="docutils literal notranslate"><span class="pre">parent_pid</span></code>.</p></li>
+<li><p>Ajouter un arrêt du processus dont le PID est le PID de la fenêtre de commande CMD puis lancer le programme depuis cette fenêtre de commande.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Un programme qui a besoin d’une ressource (fichier) peut en disposer si cette ressource est disponible. Deux cas peuvent se présenter:</p>
+<ul class="simple">
+<li><p>La ressource est disponible et le processus <strong>élu</strong> se poursuit en utilisant cette ressource.</p></li>
+<li><p>La ressource n’est pas disponible et alors le processus passe à l’état <strong>bloqué</strong>. Lorsque la ressource devient disponible, il passe à l’état <strong>prêt</strong> puis poursuit son exécution en passant à l’état <strong>élu</strong> et dispose de la ressource.</p></li>
+</ul>
+<p>Un processus accède à une ressource en mettant un <strong>verrou</strong>, empéchant les autres processus d’y accéder.</p>
+<p>En Python, le module <code class="docutils literal notranslate"><span class="pre">filelock</span></code> permet d’appliquer un <strong>verrou</strong> sur une ressource.</p>
+<p>On donne le code suivant en Python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">filelock</span> <span class="kn">import</span> <span class="n">FileLock</span>
+<span class="linenos">2</span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getpid</span>
+<span class="linenos">3</span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">verrou</span> <span class="o">=</span> <span class="n">FileLock</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je suis&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">(),</span> <span class="s2">&quot;qui va prendre le verrou&quot;</span><span class="p">)</span>
+<span class="linenos">8</span><span class="n">verrou</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="linenos">9</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je suis&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">(),</span> <span class="s2">&quot;qui a pris le verrou&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>La ressource <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> doit exister pour que le code soit exécutable ! Si elle manque, ajouter un fichier <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> même vide.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Que signifie l’instruction en ligne 5 ?</p></li>
+<li><p>Que signifie l’instruction en ligne 8 ?</p></li>
+<li><p>Avec le logiciel <strong>Thonny</strong>, recopier ce code dans un fichier Python nommé <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code> puis exécuter le. Le code s’exécute-t-il correctement ?</p></li>
+<li><p>Dans la fenêtre de commande, lancer 2 fois l’exécution du script <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code>. Que remarquez-vous ?</p></li>
+<li><p>Pour que le script puisse s’exécuter une seconde fois sans erreur, il est nécessaire de rendre disponible la ressource. La fonction <code class="docutils literal notranslate"><span class="pre">release()</span></code> libère un <strong>verrou</strong>. Ajouter cette fonction et vérifier que le code est exécutable.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="processus.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Les processus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tp_os_processus.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">TP : Processus et système d’exploitation linux</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Yannick Chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Yannick Chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

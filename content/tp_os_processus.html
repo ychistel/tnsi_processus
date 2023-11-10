@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>TP : Processus et système d’exploitation linux &#8212; NSI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/script.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/tp_os_processus';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Systèmes d’exploitation" href="os_processus.html" />
+    <link rel="prev" title="Exercices" href="exercice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">NSI</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activite.html">Qu’est-ce qu’un processus ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processus.html">Les processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP : Processus et système d’exploitation linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="os_processus.html">Systèmes d’exploitation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/tp_os_processus.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TP : Processus et système d’exploitation linux</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-terminal-linux">Le terminal linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-processus-sous-linux">Les processus sous linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-gestion-des-processus">La gestion des processus</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="tp-processus-et-systeme-d-exploitation-linux">
+<h1>TP : Processus et système d’exploitation linux<a class="headerlink" href="#tp-processus-et-systeme-d-exploitation-linux" title="Lien permanent vers cette rubrique">#</a></h1>
+<p><strong>GNU/Linux</strong> est un système d’exploitation créé par Richard Stallman et Linus Thorvald dans les années 1990. Comme windows, il s’installe sur les ordinateurs de type PC et propose les mêmes services et applications.</p>
+<p>Ce système d’exploitation peut être utilisé sans aucune interface graphique ce qui en fait sa force. L’utilisation de GNU/Linux se fait alors en ligne de commandes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ce TP se réalise sur une machine virtuelle avec le système d’exploitation <strong>Ubuntu</strong>. Les identifiants de connexion de cette machine virtuelle sont:</p>
+<ul class="simple">
+<li><p>identifiant : nsi</p></li>
+<li><p>mot de passe : Nsi2024!</p></li>
+</ul>
+</div>
+<section id="le-terminal-linux">
+<h2>Le terminal linux<a class="headerlink" href="#le-terminal-linux" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Le <strong>terminal</strong> ou <strong>console</strong> est une application qui permet de saisir ces lignes de commandes.</p>
+<ol class="arabic">
+<li><p>Quelles sont les commandes linux qui permettent:</p>
+<ul class="simple">
+<li><p>de lister le contenu d’un dossier :</p></li>
+<li><p>de changer de dossier :</p></li>
+<li><p>de créer un nouveau dossier :</p></li>
+<li><p>de déplacer un fichier dans un autre dossier :</p></li>
+</ul>
+</li>
+<li><p>Ouvrir une nouvelle fenêtre de « Terminal ». Dans quel dossier de l’arborescence êtes-vous ?</p></li>
+<li><p>Déplacez-vous dans le dossier <code class="docutils literal notranslate"><span class="pre">Documents</span></code> puis créer un dossier <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p></li>
+<li><p>Télécharger le fichier <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code> disponible sur l’ENT. Ce fichier est dans le cours sur les processus sur Moodle.</p></li>
+<li><p>Déplacer, en ligne de commandes, ce fichier vers le dossier <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p></li>
+<li><p>Exécuter ce programme en saisissant la commande :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nsi$: ./pgm.py
+</pre></div>
+</div>
+<p>Le code s’est-il exécuté correctement ?</p>
+</li>
+<li><p>Si un problème de permissions a empêché l’exécution du code, il faut les modifier sur le fichier <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code></p>
+<ol class="loweralpha simple">
+<li><p>Afficher les permissions de votre fichier <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code>.</p></li>
+<li><p>Si vous remarquez l’absence de la permission <code class="docutils literal notranslate"><span class="pre">x</span></code> pour l’utilisateur propriétaire <code class="docutils literal notranslate"><span class="pre">u</span></code>, il faut l’ajouter avec la commande:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nsi$: chmod u+x pgm.py
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="les-processus-sous-linux">
+<h2>Les processus sous linux<a class="headerlink" href="#les-processus-sous-linux" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">ps</span></code> affiche les processus utilisateur liés à la console.</p>
+<p>Avec certaines options, la commande renvoie des informations plus ciblées. Par exemple:</p>
+<ul class="simple">
+<li><p>l’option <code class="docutils literal notranslate"><span class="pre">-f</span></code> affiche plus d’informations sur les processus liés au terminal (console).</p></li>
+<li><p>l’option <code class="docutils literal notranslate"><span class="pre">-u</span></code> suivi du nom utilisateur affiche les processus de l’utilisateur.</p></li>
+<li><p>l’option <code class="docutils literal notranslate"><span class="pre">-e</span></code> affiche tous les processus de tous les utilisateurs.</p></li>
+<li><p>l’option <code class="docutils literal notranslate"><span class="pre">-o</span></code> suivi d’arguments affiche les informations pour chaque processus et pour chaque argument passé en paramètres.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Afficher les processus utilisateur avec la commande <code class="docutils literal notranslate"><span class="pre">ps</span></code> puis avec la commande <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-f</span></code>.</p></li>
+<li><p>Afficher les processus utilisateur avec la commande <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-u</span></code> suivi du nom utilisateur.</p></li>
+<li><p>Reprendre la commande précédente en y ajoutant l’option <code class="docutils literal notranslate"><span class="pre">-f</span></code> pour avoir plus d’informations.</p></li>
+<li><p>Afficher les processus utilisateur avec les arguments pid, ppid et command.</p></li>
+</ol>
+</section>
+<section id="la-gestion-des-processus">
+<h2>La gestion des processus<a class="headerlink" href="#la-gestion-des-processus" title="Lien permanent vers cette rubrique">#</a></h2>
+<ol class="arabic">
+<li><p>Exécuter votre programme <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code> et afficher les processus de l’utilisateur. Le programme python figure-t-il dans la liste des processus ? Pourquoi ?</p></li>
+<li><p>On peut lancer un programme en arrière-plan en ajoutant <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> à la fin de la commande.</p>
+<ol class="loweralpha simple">
+<li><p>Exécuter votre programme <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code> en arrière-plan.</p></li>
+<li><p>Le processus lié au programme est il affiché ? Les PID et PPID correspondent-ils ?</p></li>
+</ol>
+</li>
+<li><p>Lancer un navigateur et observer dans les processus sa présence.</p>
+<ol class="loweralpha simple">
+<li><p>Combien de processus enfants ont été créés ?</p></li>
+<li><p>Quel est le PID et PPID du processus parent du navigateur ?</p></li>
+</ol>
+</li>
+<li><p>Il est possible de terminer (tuer) un processus avec la commande <code class="docutils literal notranslate"><span class="pre">kill</span></code> suivi du numéro de processus.</p>
+<p>Mettre fin en ligne de commande au processus associé à votre navigateur web.</p>
+</li>
+<li><ol class="loweralpha">
+<li><p>Modifier votre programme <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code> en remplaçant l’instruction <code class="docutils literal notranslate"><span class="pre">sleep</span></code> par une boucle infinie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+   <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p>Exécuter votre programme <code class="docutils literal notranslate"><span class="pre">pgm.py</span></code>. Quelles sont les différentes manières de l’arrêter ?</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="exercice.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Exercices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="os_processus.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Systèmes d’exploitation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-terminal-linux">Le terminal linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-processus-sous-linux">Les processus sous linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-gestion-des-processus">La gestion des processus</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Yannick Chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Yannick Chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
