@@ -9,9 +9,10 @@ print("Je suis", getpid(), "qui va prendre le verrou")
 verrou.acquire()
 print("Je suis", getpid(), "qui a pris le verrou")
 
-print("Je fais une pause ! Je bloque la ressource")
-sleep(20)
+print("Je fais une pause ! Je libère la ressource")
+verrou.release()
 
+sleep(10)
 fin = time()
 duree = round(fin - debut,2)
 

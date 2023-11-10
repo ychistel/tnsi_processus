@@ -115,8 +115,48 @@ On donne le code suivant en Python:
 
    La ressource ``test.txt`` doit exister pour que le code soit exécutable ! Si elle manque, ajouter un fichier ``test.txt`` même vide.
 
-#. Que signifie l'instruction en ligne 5 ?
-#. Que signifie l'instruction en ligne 8 ?
+#. Que signifie l'instruction ``verrou = FileLock("test.txt")`` ?
+#. Que signifie l'instruction en ligne ``verrou.acquire()`` ?
 #. Avec le logiciel **Thonny**, recopier ce code dans un fichier Python nommé ``verrou.py`` puis exécuter le. Le code s'exécute-t-il correctement ?
-#. Dans la fenêtre de commande, lancer 2 fois l'exécution du script ``verrou.py``. Que remarquez-vous ?
-#. Pour que le script puisse s'exécuter une seconde fois sans erreur, il est nécessaire de rendre disponible la ressource. La fonction ``release()`` libère un **verrou**. Ajouter cette fonction et vérifier que le code est exécutable.
+
+   .. warning::
+
+      Il est possible que le module ``filelock`` ne soit pas installé. Dans ce cas, ajouter le paquet ``filelock`` en passant par "Outils -> Gérer les paquets...", recherche sur ``filelock`` puis installer.
+
+#. Exécuter le code dans une fenêtre de commande ``cmd``.
+
+   .. warning::
+
+      Il est possible que le module ``filelock`` ne soit pas installé sur la version Python de la machine. On peut utiliser l'interpréteur Python de Thonny. Pour cela, vous devez ajouter en première ligne de votre programme l'instruction ci-dessous.
+
+      .. code-block:: python
+
+         #! "C:\Program Files (x86)\Thonny\python.exe"
+         
+#. On va exécuter le programme ``verrou.py`` dans 2 fenêtres de commande séparées. 
+
+   a. Ouvrir 2 fenêtres de commande l'une à côté de l'autre.
+
+      .. figure:: ../img/fenetre_cmd_parallele.png
+         :align: center
+
+   b. Dans une fenêtre de commande, lancer l'exécution du script ``verrou.py``.
+   
+      .. figure:: ../img/fenetre_cmd_parallele_2.png
+         :align: center
+
+   c. Dans l'autre fenêtre de commande, lancer aussi l'exécution du script ``verrou.py``.
+
+      .. figure:: ../img/fenetre_cmd_parallele_3.png
+         :align: center
+
+   d. Que remarquez-vous ?
+
+#. Pour que le script puisse s'exécuter une seconde fois sans erreur, il est nécessaire de rendre disponible la ressource. La fonction ``release()`` libère un **verrou**. 
+
+   a. Ajouter l'instruction ``verrou.release()`` juste avant la pause du programme puis enregistrer votre code.
+
+      .. figure:: ../img/verrou_py.png
+         :align: center
+
+   b. Relancer les 2 programmes en parallèle et contrôler que le second n'est plus bloqué.
