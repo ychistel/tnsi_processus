@@ -293,6 +293,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
             </nav>
         </div>
@@ -481,6 +482,29 @@ sous forme de chronogramme.</p></li>
 </li>
 </ol>
 </section>
+<section id="exercice-4">
+<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On donne les fichiers <code class="docutils literal notranslate"><span class="pre">verrou_1.py</span></code> et <code class="docutils literal notranslate"><span class="pre">verrou_2.py</span></code> en Python. On lance les programmes en parallèle dans 2 fenêtres d’invite de commandes.</p>
+<figure class="align-center">
+<img alt="../_images/interblocage_verrou_py.png" src="../_images/interblocage_verrou_py.png" />
+</figure>
+<ol class="arabic">
+<li><p>Que se passe-t-il ? Comment l’expliquer ? Comment résoudre ce problème ?</p></li>
+<li><p>La méthode <code class="docutils literal notranslate"><span class="pre">release()</span></code> du module <code class="docutils literal notranslate"><span class="pre">firelock</span></code> libère les ressources qui ont un verrou.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># On verrouille une ressource !</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">verrou</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="c1"># On libère la ressource</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">verrou</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Ajouter des instructions dans les fichiers <code class="docutils literal notranslate"><span class="pre">verrou_1.py</span></code> et <code class="docutils literal notranslate"><span class="pre">verrou_2.py</span></code> de sorte que les programmes se terminent chacun correctement ! On ajoutera des messages pour vérifier le déroulement.</p>
+<figure class="align-center">
+<img alt="../_images/interblocage_verrou_release_py.png" src="../_images/interblocage_verrou_release_py.png" />
+</figure>
+</li>
+<li><p>Créer un fichier <code class="docutils literal notranslate"><span class="pre">verrou_3.py</span></code> pour réaliser un interblocage entre les trois fichiers utilisant 3 ressources différentes.</p></li>
+</ol>
+</section>
 </section>
 
 
@@ -530,6 +554,7 @@ sous forme de chronogramme.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
   </nav></div>
 

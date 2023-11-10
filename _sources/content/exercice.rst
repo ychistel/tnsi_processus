@@ -160,3 +160,28 @@ On donne le code suivant en Python:
          :align: center
 
    b. Relancer les 2 programmes en parallèle et contrôler que le second n'est plus bloqué.
+
+Exercice 4
+----------
+
+On donne les fichiers ``verrou_1.py`` et ``verrou_2.py`` en Python. On lance les programmes en parallèle dans 2 fenêtres d'invite de commandes.
+
+.. figure:: ../img/interblocage_verrou_py.png
+   :align: center
+
+#. Que se passe-t-il ? Comment l'expliquer ? Comment résoudre ce problème ?
+#. La méthode ``release()`` du module ``firelock`` libère les ressources qui ont un verrou.
+
+   .. code-block:: python
+
+      # On verrouille une ressource !
+      >>> verrou.acquire()
+      # On libère la ressource
+      >>> verrou.release()
+
+   Ajouter des instructions dans les fichiers ``verrou_1.py`` et ``verrou_2.py`` de sorte que les programmes se terminent chacun correctement ! On ajoutera des messages pour vérifier le déroulement.
+
+   .. figure:: ../img/interblocage_verrou_release_py.png
+      :align: center
+
+#. Créer un fichier ``verrou_3.py`` pour réaliser un interblocage entre les trois fichiers utilisant 3 ressources différentes.
