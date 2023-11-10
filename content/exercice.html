@@ -407,27 +407,78 @@ sous forme de chronogramme.</p></li>
 <p>Un processus accède à une ressource en mettant un <strong>verrou</strong>, empéchant les autres processus d’y accéder.</p>
 <p>En Python, le module <code class="docutils literal notranslate"><span class="pre">filelock</span></code> permet d’appliquer un <strong>verrou</strong> sur une ressource.</p>
 <p>On donne le code suivant en Python:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">filelock</span> <span class="kn">import</span> <span class="n">FileLock</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getpid</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="linenos">4</span>
-<span class="linenos">5</span><span class="n">verrou</span> <span class="o">=</span> <span class="n">FileLock</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
-<span class="linenos">6</span>
-<span class="linenos">7</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je suis&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">(),</span> <span class="s2">&quot;qui va prendre le verrou&quot;</span><span class="p">)</span>
-<span class="linenos">8</span><span class="n">verrou</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
-<span class="linenos">9</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je suis&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">(),</span> <span class="s2">&quot;qui a pris le verrou&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">filelock</span> <span class="kn">import</span> <span class="n">FileLock</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getpid</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span><span class="n">time</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">debut</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="n">verrou</span> <span class="o">=</span> <span class="n">FileLock</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je suis&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">(),</span> <span class="s2">&quot;qui va prendre le verrou&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">verrou</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je suis&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">(),</span> <span class="s2">&quot;qui a pris le verrou&quot;</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je fais une pause ! Je bloque la ressource&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">sleep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">fin</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="linenos">16</span><span class="n">duree</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">fin</span> <span class="o">-</span> <span class="n">debut</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fin du processus, la ressource est libérée ! Durée du processus :&quot;</span><span class="p">,</span><span class="n">duree</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Prudence</p>
 <p>La ressource <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> doit exister pour que le code soit exécutable ! Si elle manque, ajouter un fichier <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> même vide.</p>
 </div>
-<ol class="arabic simple">
-<li><p>Que signifie l’instruction en ligne 5 ?</p></li>
-<li><p>Que signifie l’instruction en ligne 8 ?</p></li>
-<li><p>Avec le logiciel <strong>Thonny</strong>, recopier ce code dans un fichier Python nommé <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code> puis exécuter le. Le code s’exécute-t-il correctement ?</p></li>
-<li><p>Dans la fenêtre de commande, lancer 2 fois l’exécution du script <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code>. Que remarquez-vous ?</p></li>
-<li><p>Pour que le script puisse s’exécuter une seconde fois sans erreur, il est nécessaire de rendre disponible la ressource. La fonction <code class="docutils literal notranslate"><span class="pre">release()</span></code> libère un <strong>verrou</strong>. Ajouter cette fonction et vérifier que le code est exécutable.</p></li>
+<ol class="arabic">
+<li><p>Que signifie l’instruction <code class="docutils literal notranslate"><span class="pre">verrou</span> <span class="pre">=</span> <span class="pre">FileLock(&quot;test.txt&quot;)</span></code> ?</p></li>
+<li><p>Que signifie l’instruction en ligne <code class="docutils literal notranslate"><span class="pre">verrou.acquire()</span></code> ?</p></li>
+<li><p>Avec le logiciel <strong>Thonny</strong>, recopier ce code dans un fichier Python nommé <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code> puis exécuter le. Le code s’exécute-t-il correctement ?</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Il est possible que le module <code class="docutils literal notranslate"><span class="pre">filelock</span></code> ne soit pas installé. Dans ce cas, ajouter le paquet <code class="docutils literal notranslate"><span class="pre">filelock</span></code> en passant par « Outils -&gt; Gérer les paquets… », recherche sur <code class="docutils literal notranslate"><span class="pre">filelock</span></code> puis installer.</p>
+</div>
+</li>
+<li><p>Exécuter le code dans une fenêtre de commande <code class="docutils literal notranslate"><span class="pre">cmd</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Il est possible que le module <code class="docutils literal notranslate"><span class="pre">filelock</span></code> ne soit pas installé sur la version Python de la machine. On peut utiliser l’interpréteur Python de Thonny. Pour cela, vous devez ajouter en première ligne de votre programme l’instruction ci-dessous.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! &quot;C:\Program Files (x86)\Thonny\python.exe&quot;</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>On va exécuter le programme <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code> dans 2 fenêtres de commande séparées.</p>
+<ol class="loweralpha">
+<li><p>Ouvrir 2 fenêtres de commande l’une à côté de l’autre.</p>
+<figure class="align-center">
+<img alt="../_images/fenetre_cmd_parallele.png" src="../_images/fenetre_cmd_parallele.png" />
+</figure>
+</li>
+<li><p>Dans une fenêtre de commande, lancer l’exécution du script <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code>.</p>
+<figure class="align-center">
+<img alt="../_images/fenetre_cmd_parallele_2.png" src="../_images/fenetre_cmd_parallele_2.png" />
+</figure>
+</li>
+<li><p>Dans l’autre fenêtre de commande, lancer aussi l’exécution du script <code class="docutils literal notranslate"><span class="pre">verrou.py</span></code>.</p>
+<figure class="align-center">
+<img alt="../_images/fenetre_cmd_parallele_3.png" src="../_images/fenetre_cmd_parallele_3.png" />
+</figure>
+</li>
+<li><p>Que remarquez-vous ?</p></li>
+</ol>
+</li>
+<li><p>Pour que le script puisse s’exécuter une seconde fois sans erreur, il est nécessaire de rendre disponible la ressource. La fonction <code class="docutils literal notranslate"><span class="pre">release()</span></code> libère un <strong>verrou</strong>.</p>
+<ol class="loweralpha">
+<li><p>Ajouter l’instruction <code class="docutils literal notranslate"><span class="pre">verrou.release()</span></code> juste avant la pause du programme puis enregistrer votre code.</p>
+<figure class="align-center">
+<img alt="../_images/verrou_py.png" src="../_images/verrou_py.png" />
+</figure>
+</li>
+<li><p>Relancer les 2 programmes en parallèle et contrôler que le second n’est plus bloqué.</p></li>
+</ol>
+</li>
 </ol>
 </section>
 </section>
